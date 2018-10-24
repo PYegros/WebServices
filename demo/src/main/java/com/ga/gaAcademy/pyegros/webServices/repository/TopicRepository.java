@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 
 import com.ga.gaAcademy.pyegros.webServices.entity.Topic;
 
-public interface TopicRepository  extends JpaRepository<Topic,Integer>{
+public interface TopicRepository extends JpaRepository<Topic,Integer>{
 
 }

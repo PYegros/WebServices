@@ -1,12 +1,12 @@
-package com.ga.gaAcademy.pyegros.webServices.demo;
+package com.ga.gaAcademy.pyegros.webServices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class WebServicesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(WebServicesApplication.class, args);
 	}
 }

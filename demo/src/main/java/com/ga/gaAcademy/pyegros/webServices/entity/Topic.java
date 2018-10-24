@@ -20,10 +20,10 @@ public class Topic {
 	@Column(name = "datePost")
 	private Date datePost;
 
-	@Column(name ="descipction")
+	@Column(name = "descipction")
 	private String description;
 	
-	@Column(name ="author")
+	@Column(name = "author")
 	private int author;
 	
 	public Topic() {}
