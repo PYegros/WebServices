@@ -27,12 +27,26 @@ public class TopicService {
 		return topicRepository.findAll();
 	}
 	
-	public Optional<Topic> getOneTopic(int id)
+	public Topic getOneTopic(int id)
 	{	
-		return topicRepository.findById(id);
+		return topicRepository.findById(id).get();
 	}
-	public Optional<Topic> getTopicAuthor(int author)
+	public Topic updateTopic(int id, Topic updateTopic)
 	{
-		return topicRepository.findById(author);
+		Topic toUpdateTopic = topicRepository.findById(id).get();
+		if(updateTopic.getAuthor()>0)
+		{
+			toUpdateTopic.setAuthor(updateTopic.getAuthor());
+		}
+		if(updateTopic.getTitle()!=null)
+		{
+			toUpdateTopic.setTitle(updateTopic.getTitle());
+		}
+		if(updateTopic.getDescription()!=null)
+		{
+			toUpdateTopic.setDescription(updateTopic.getDescription());
+		}
+		toUpdateTopic = topicRepository.save(toUpdateTopic);
+		return toUpdateTopic;
 	}
 }
