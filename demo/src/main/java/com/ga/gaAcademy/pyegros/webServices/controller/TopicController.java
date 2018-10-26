@@ -48,7 +48,7 @@ public class TopicController {
 		return t;
 	}
 	@DeleteMapping("/topic/{id}")
-	public ResponseEntity<?> deleteTopic(@PathVariable int id)
+	public ResponseEntity<?> deleteTopic(@PathVariable int id) //DELETE FISICO
 	{
 		int idTopicABorrar = topicService.deleteTopicFis(id);
 		String a = "El topic :" + idTopicABorrar + " fue borrado exitosamente.";
