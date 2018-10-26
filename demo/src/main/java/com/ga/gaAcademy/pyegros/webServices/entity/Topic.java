@@ -18,7 +18,7 @@ public class Topic {
 	private String title;
 	
 	@Column(name = "datePost")
-	private Date datePost;
+	private Date datePost = new Date();
 
 	@Column(name = "descipction")
 	private String description;
@@ -26,14 +26,19 @@ public class Topic {
 	@Column(name = "author")
 	private int author;
 	
+	@Column(name = "status")
+	private boolean deleted;
+	
+	
 	public Topic() {}
 
-	public Topic(String title, Date datePost, String description, int author) {
+	public Topic(String title, Date datePost, String description, int author, boolean deleted) {
 		super();
 		this.title = title;
-		this.datePost = datePost;
+		this.datePost = new Date();
 		this.description = description;
 		this.author = author;
+		this.deleted = deleted;
 	}
 
 	public String getTitle() {
@@ -73,4 +78,16 @@ public class Topic {
 	}
 
 	
+	public boolean isDeleted(){
+	 	return deleted;
+	 }
+	
+	public boolean setDeleted(boolean deleted){
+		return this.deleted = deleted;
+	 }
+	 
+	public void delete()
+	{
+		this.deleted=true;
+	}
 }

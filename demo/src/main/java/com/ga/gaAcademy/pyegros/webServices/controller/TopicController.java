@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +47,25 @@ public class TopicController {
 		Topic t = topicService.updateTopic(id,newTopic);
 		return t;
 	}
-	
-	
+	@DeleteMapping("/topic/{id}")
+	public ResponseEntity<?> deleteTopic(@PathVariable int id)
+	{
+		int idTopicABorrar = topicService.deleteTopicFis(id);
+		String a = "El topic :" + idTopicABorrar + " fue borrado exitosamente.";
+		return new ResponseEntity<String>(a,HttpStatus.ACCEPTED);
+	}
+	@DeleteMapping("/topic/logic/{id}")
+	public ResponseEntity<?> deleteLogicTopic(@PathVariable int id)
+	{
+		int fueBorrado = topicService.deleteLogicTopic(id);
+		if (fueBorrado > 0)
+		{
+			String msg = "El topic ID: " + fueBorrado + " fue borrado exitosamente";
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
